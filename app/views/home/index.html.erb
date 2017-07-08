@@ -16,30 +16,20 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <% Post.all.each do |post| %>
             <div class="post-preview">
-                <a href="post.html">
+                <%= link_to post do %>
                     <h2 class="post-title">
-                        Title
+                        <%= post.title %>
                     </h2>
                     <h3 class="post-subtitle">
-                        Description
+                        <%= ISO3166::Country.find_country_by_alpha2(post.country).name %>
                     </h3>
-                </a>
-                <p class="post-meta">Posted on</p>
+                <% end %>
+                <p class="post-meta">Posted on <%= post.created_at.strftime("%B %d, %Y") %></p>
             </div>
             <hr>
-            <div class="post-preview">
-                <a href="post.html">
-                    <h2 class="post-title">
-                        Title
-                    </h2>
-                    <h3 class="post-subtitle">
-                        Description
-                    </h3>
-                </a>
-                <p class="post-meta">Posted on</p>
-            </div>
-            <hr>
+            <% end %>
             
             <!-- Pager -->
             <ul class="pager">
