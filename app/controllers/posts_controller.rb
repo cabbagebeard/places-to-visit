@@ -6,6 +6,10 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new(post_params)
+    r = ISO3166::Country.find_country_by_alpha2(@post.country)
+    
+    @post.region = r.region
+    @post.subregion = r.subregion
     
     if @post.save
       redirect_to @post
