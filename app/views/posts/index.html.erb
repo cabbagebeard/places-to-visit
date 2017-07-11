@@ -27,11 +27,13 @@
     </div>
 </header>
 
-<% posts = Post.where(region: continent) %>
+<% posts = Post.where(region: continent).order(subregion: :asc) %>
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <h1>Destinations in <%= continent %> </h1>
+            <h1 class="text-center">Destinations in <%= continent %> </h1>
+            <hr>
+            
             <% posts.each do |post| %>
                 <div class="post-preview">
                     <%= link_to post do %>
@@ -40,6 +42,9 @@
                         </h2>
                         <h3 class="post-subtitle">
                             <%= ISO3166::Country.find_country_by_alpha2(post.country).name %>
+                        </h3>
+                        <h3 class="post-subtitle">
+                            <%= post.subregion %>
                         </h3>
                     <% end %>
                     <p class="post-meta">Posted on <%= post.created_at.strftime("%B %d, %Y") %></p>
