@@ -1,6 +1,31 @@
 <% continent = request.original_fullpath.split('=').last %>
-
 <!-- GRABS CONTINENT FROM URL PATH -->
+
+<% if continent == "Africa" %> 
+    <% continent_img = "http://famouswonders.com/wp-content/uploads/2009/03/serengeti-landscape.jpg" %>
+    <% elsif continent == "Americas" %>
+        <% continent_img = "http://bossfight.co/wp-content/uploads/2016/03/boss-fight-free-high-quality-stock-images-photos-photography-river-forest-trees.jpg" %>
+    <% elsif continent == "Asia" %>
+        <% continent_img = "https://www.i-to-i.com/wp-content/uploads/2016/03/china-header2.jpg" %>
+    <% elsif continent == "Europe" %>
+        <% continent_img = "https://image.jimcdn.com/app/cms/image/transf/dimension=1190x10000:format=jpg/path/sa6549607c78f5c11/image/i3aeb4db7d64c8c69/version/1453912088/neuschwanstein-castle-bavaria-germany-best-castles-in-europe.jpg" %>
+    <% elsif continent == "Oceania" %>
+        <% continent_img = "http://culturewhiz.org/sites/default/files/images/destinations/Oceania.original.1725.jpg" %>
+<% end %>
+
+
+<header class="intro-header" style="background-image: url(<%= continent_img %>)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1><%= continent %></h1>
+                    <hr class="small">
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
 <% posts = Post.where(region: continent) %>
 <div class="container">
