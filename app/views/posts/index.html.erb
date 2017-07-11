@@ -1,0 +1,26 @@
+<% continent = request.original_fullpath.split('=').last %>
+
+<!-- GRABS CONTINENT FROM URL PATH -->
+
+<% posts = Post.where(region: continent) %>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <h1>Destinations in <%= continent %> </h1>
+            <% posts.each do |post| %>
+                <div class="post-preview">
+                    <%= link_to post do %>
+                        <h2 class="post-title">
+                            <%= post.title %>
+                        </h2>
+                        <h3 class="post-subtitle">
+                            <%= ISO3166::Country.find_country_by_alpha2(post.country).name %>
+                        </h3>
+                    <% end %>
+                    <p class="post-meta">Posted on <%= post.created_at.strftime("%B %d, %Y") %></p>
+                </div>
+                <hr>
+            <% end %>
+        </div>
+    </div>
+</div>
