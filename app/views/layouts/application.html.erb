@@ -14,6 +14,15 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  
+      <!-- jQuery -->
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -45,14 +54,13 @@
                         <a href="/about">About</a>
                     </li>
                     <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Continents<span class="caret"></span></a>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Regions<span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                        <li><a href="#">Africa</a></li>
-                        <li><a href="#">Asia</a></li>
-                        <li><a href="#">Europe</a></li>
-                        <li><a href="#">North America</a></li>
-                        <li><a href="#">Oceania</a></li>
-                        <li><a href="#">South America</a></li>
+                        <li><a href="/posts?=Africa">Africa</a></li>
+                        <li><a href="/posts?=Americas">Americas</a></li>
+                        <li><a href="/posts?=Asia">Asia</a></li>
+                        <li><a href="/posts?=Europe">Europe</a></li>
+                        <li><a href="/posts?=Oceania">Oceania</a></li>
                       </ul>
                     </li>
                 </ul>
@@ -61,6 +69,7 @@
         </div>
         <!-- /.container -->
     </nav>
+    <br><br>
 <%= yield %>
 <footer>
     <div class="container">
@@ -95,14 +104,6 @@
         </div>
     </div>
 </footer>
-<!-- jQuery -->
-<script
-src="https://code.jquery.com/jquery-3.2.1.min.js"
-integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-crossorigin="anonymous"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 </html>
