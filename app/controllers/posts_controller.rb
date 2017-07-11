@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-before_action :authenticate_admin!, :except => [:show]
+before_action :authenticate_admin!, :except => [:show, :index]
 
   def new
     @post = Post.new
