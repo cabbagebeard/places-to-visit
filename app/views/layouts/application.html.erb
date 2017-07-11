@@ -63,6 +63,10 @@
                     <li>
                         <a href="/about">About</a>
                     </li>
+                    <% if admin_signed_in? %>
+                        <li><%= link_to 'New Post', new_post_path %></li>
+                        <li><%= link_to('logout', destroy_admin_session_path, method: :delete) %></li>
+                    <% end %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -100,6 +104,9 @@
                     </li>
                 </ul>
                 <p class="copyright text-muted">Copyright &copy; Kevin Windisch 2017</p>
+                <% if not admin_signed_in? %>
+                   <p class="copyright text-muted"><%= link_to 'Admin Login', new_admin_session_path %></p>
+                <% end %>
             </div>
         </div>
     </div>
