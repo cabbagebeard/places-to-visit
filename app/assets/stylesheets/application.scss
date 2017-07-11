@@ -6,6 +6,18 @@
  
 @import "bootstrap";
 
+.pagination {
+  .disabled {
+    display: none;
+  }
+  .current {
+    font-size: 110%;
+    font-weight: 800;
+    padding: 2px;
+    border: 1px solid gray;
+  }
+}
+
 body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;

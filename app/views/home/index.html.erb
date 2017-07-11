@@ -16,8 +16,9 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-            <% Post.all.each do |post| %>
+            <% posts = Post.paginate(:page => params[:page], :per_page => 5) %>
+
+            <% posts.order(created_at: :desc).each do |post| %>
             <div class="post-preview">
                 <%= link_to post do %>
                     <h2 class="post-title">
@@ -34,9 +35,7 @@
             
             <!-- Pager -->
             <ul class="pager">
-                <li class="next">
-                    <a href="#">Older Posts &rarr;</a>
-                </li>
+                <%= will_paginate posts %>
             </ul>
         </div>
     </div>
